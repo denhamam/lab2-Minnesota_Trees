@@ -1,7 +1,7 @@
 ---
 title: "Lab2-Minnesota_Trees"
 format: html
-editor: visual
+author: Ainsley Denham
 self_contained: true
 ---
 
@@ -38,7 +38,7 @@ tree_data %>%
 #Question 4: How many trees are older then 200 years old in the last year of the dataset?
 ```{r}
 tree_data %>% 
-  filter(year == max_year, age > 200) %>% 
+  filter(year == max(year), age > 200) %>% 
   summarize(count = n())
 # 7 trees are olders then 200 years old in the last year of the dataset
 ```
@@ -161,7 +161,7 @@ dbh_counts <- tree_data %>%
 tree_2007 <- tree_data %>%
   filter(year == 2007)
 dbh_counts <- tree_2007 %>%
-  count(DBH_class)
+  count(DBH_cm)
 print(dbh_counts)
 # There are 2291 sawlogs in 2007
 ```
